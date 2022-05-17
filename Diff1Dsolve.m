@@ -35,7 +35,7 @@ clear all;
 Diff1Dconst;
 
 %%%% RUN NUMBER %%%%%%%
-run = 1;
+run = 2;
 out_folder = './data/'; %folder to save data to (will be labeled with
                       %run number). 
 
