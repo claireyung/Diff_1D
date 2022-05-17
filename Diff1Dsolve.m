@@ -181,6 +181,7 @@ eval(['dvdy = repmat(dvdy,[Nz 1]).*repmat(' dvdy_v ...
 u = zeros(Nz,Nt);v = zeros(Nz,Nt);T = zeros(Nz,Nt);
 S = zeros(Nz,Nt);b = zeros(Nz,Nt);%z_rho variables
 kv = zeros(Nz+1,Nt);kt = zeros(Nz+1,Nt);ks = zeros(Nz+1,Nt);
+kt_int = zeros(Nz+1,Nt);kt_bl = zeros(Nz+1,Nt);
 gamv=zeros(Nz+1,Nt);gamt=zeros(Nz+1,Nt);gams= zeros(Nz+1,Nt);
 bulkRiN = zeros(Nz+1,Nt);bulkRiD = zeros(Nz+1,Nt);%z_w variables
 Hsbl = zeros(1,Nt);
