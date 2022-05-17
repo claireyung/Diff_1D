@@ -21,7 +21,7 @@ dJdz = (J(2:end,:)-J(1:(end-1),:)); % Wm-2 within each grid cell
 
 % Calculate J non-local:
 Jnl = zeros(Nz+1,Nt);
-Jnl = -gamt*Cp*rho0;
+Jnl = -gamt.*kt*Cp*rho0;
 dJnldz = (Jnl(2:end,:)-Jnl(1:(end-1),:)); % Wm-2 within each grid cell
 
 % Define temperature grid:
