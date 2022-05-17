@@ -64,21 +64,20 @@ JnlTmean = cat(1,zeros(1,1),cumsum(JnlTmean));
 figure;
 tind = 50;
 subplot(1,2,1);
-plot(J(:,tind),z_w,'--k', 'DisplayName','Diffusive Snapshot');
+plot(J(:,tind),z_w,'--k', 'label','Duff');
 hold on;
-plot(mean(J,2),z_w,'-k','linewidth',2,'DisplayName','Diffusive Mean');
+plot(mean(J,2),z_w,'-k','linewidth',2,'label','Mean');
 
-plot(Jnl(:,tind),z_w,'--r','DisplayName','Nonlocal Snapshot');
-plot(mean(Jnl,2),z_w,'-r','linewidth',2, 'DisplayName','Nonlocal Mean');
-legend('Location','southeast');
+plot(Jnl(:,tind),z_w,'--r','label','Nonlocal total');
+plot(mean(Jnl,2),z_w,'-r','linewidth',2);
 
 subplot(1,2,2);
-plot(JT(:,tind),Tie,'--k', 'DisplayName','Diffusive Snapshot');
+plot(JT(:,tind),Tie,'--k');
 hold on;
-plot(mean(JT,2),Tie,'-k','linewidth',2,'DisplayName','Diffusive Total');
-plot(JTmean,Tie,':k','linewidth',2,'DisplayName','Diffusive Mean');
-plot(JnlT(:,tind),Tie,'--r','DisplayName','Nonlocal Snapshot');
-plot(mean(JnlT,2),Tie,'-r','linewidth',2,'DisplayName','Nonlocal Total');
-plot(JnlTmean,Tie,':r','linewidth',2,'DisplayName','Nonlocal Mean');
+plot(mean(JT,2),Tie,'-k','linewidth',2);
+plot(JTmean,Tie,':k','linewidth',2);
+plot(JnlT(:,tind),Tie,'--r');
+plot(mean(JnlT,2),Tie,'-r','linewidth',2);
+plot(JnlTmean,Tie,':r','linewidth',2);
 
-legend('Location','southeast');
+legend

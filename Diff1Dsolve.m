@@ -35,7 +35,7 @@ clear all;
 Diff1Dconst;
 
 %%%% RUN NUMBER %%%%%%%
-run = 2;
+run = 6;
 out_folder = './data/'; %folder to save data to (will be labeled with
                       %run number). 
 
@@ -46,7 +46,7 @@ out_folder = './data/'; %folder to save data to (will be labeled with
 dt = 120;
 tfin = 45*86400; %sec
 t = 0:dt:tfin;Nt = length(t); %time
-NOUT = 2; %output averaged every NOUT time steps.
+NOUT = 1; %output averaged every NOUT time steps.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SURFACE forcing 
@@ -57,7 +57,7 @@ tau_y = 0*ones(size(t)); %Nm-2
 
 ssflux = 0*ones(size(t)); %psu kg-1 m-2 s-1
 period = 15*86400; %peroid of oscillation (s)
-amplitude = 120; %2.8e-6; %amplitude of heat flux variation
+amplitude = 300; %2.8e-6; %amplitude of heat flux variation
 shflux = -180*ones(size(t)); %surface heat flux (use srflux = 0 and shflux = total
               %for all at surface). Wm-2 = J s-1 m-2 = kg s-3
 
