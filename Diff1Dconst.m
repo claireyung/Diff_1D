@@ -7,7 +7,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % VERTICAL coordinates ROMS
-N = 50;
+N = 50;%100;%50;
 h = 4000;
 Vtransform = 1;
 Vstretching = 1;

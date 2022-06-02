@@ -76,31 +76,53 @@ JTblmean = cat(1,zeros(1,1),cumsum(JTblmean));
 JTintmean = cat(1,zeros(1,1),cumsum(JTintmean));
 JnlTmean = cat(1,zeros(1,1),cumsum(JnlTmean));
 
+%Define eddy terms
+JTbleddy = mean(JblT,2) - JTblmean;
+JTinteddy = mean(JintT,2) - JTintmean;
+JTnleddy = mean(JnlT,2) - JnlTmean;
+
+
 % Do some plotting in T and z space:
 figure;
+set(gcf,'Position',[100 100 700 400]);
 tind = 50;
-subplot(1,2,1);
-plot(Jbl(:,tind),z_w,'--k', 'DisplayName','BL Diffusive Snapshot');
-hold on;
+subplot(1,3,1);
+%plot(Jbl(:,tind),z_w,'--k', 'DisplayName','BL Diffusive Snapshot');
+%hold on;
 plot(mean(Jbl,2),z_w,'-k','linewidth',2,'DisplayName','BL Diffusive Mean');
-
-plot(Jint(:,tind),z_w,'--b', 'DisplayName','Int Diffusive Snapshot');
+hold on;
+%plot(Jint(:,tind),z_w,'--b', 'DisplayName','Int Diffusive Snapshot');
 plot(mean(Jint,2),z_w,'-b','linewidth',2,'DisplayName','Int Diffusive Mean');
 
-plot(Jnl(:,tind),z_w,'--r','DisplayName','Nonlocal Snapshot');
+%plot(Jnl(:,tind),z_w,'--r','DisplayName','Nonlocal Snapshot');
 plot(mean(Jnl,2),z_w,'-r','linewidth',2, 'DisplayName','Nonlocal Mean');
+ylabel('Depth (m)','FontSize',15);
+xlabel('Flux (Wm$^{-2}$)','FontSize',15);
 legend('Location','southeast','fontsize',9);
 
-subplot(1,2,2);
-plot(JblT(:,tind),Tie,'--k', 'DisplayName','BL Diffusive Snapshot');
-hold on;
+subplot(1,3,2);
+%plot(JblT(:,tind),Tie,'--k', 'DisplayName','BL Diffusive Snapshot');
+%hold on;
 plot(mean(JblT,2),Tie,'-k','linewidth',2,'DisplayName','BL Diffusive Online');
+hold on;
 plot(JTblmean,Tie,':k','linewidth',2,'DisplayName','BL Diffusive Mean');
-plot(JintT(:,tind),Tie,'--b', 'DisplayName','Int Diffusive Snapshot');
+%plot(JintT(:,tind),Tie,'--b', 'DisplayName','Int Diffusive Snapshot');
 plot(mean(JintT,2),Tie,'-b','linewidth',2,'DisplayName','Int Diffusive Online');
 plot(JTintmean,Tie,':b','linewidth',2,'DisplayName','Int Diffusive Mean');
-plot(JnlT(:,tind),Tie,'--r','DisplayName','Nonlocal Snapshot');
+%plot(JnlT(:,tind),Tie,'--r','DisplayName','Nonlocal Snapshot');
 plot(mean(JnlT,2),Tie,'-r','linewidth',2,'DisplayName','Nonlocal Online');
 plot(JnlTmean,Tie,':r','linewidth',2,'DisplayName','Nonlocal Mean');
+ylabel('Temperature ($^\circ$C)','FontSize',15);
+xlabel('Flux (Wm$^{-2}$)','FontSize',15);
+legend('Location','southeast','fontsize',9);
 
+subplot(1,3,3);
+plot(JTbleddy,Tie,'-k','linewidth',2, 'DisplayName','BL Diffusive Eddy');
+hold on;
+plot(JTinteddy,Tie,'-b','linewidth',2, 'DisplayName','Int Diffusive Eddy');
+plot(JTnleddy,Tie,'-r','linewidth',2,'DisplayName','Nonlocal Eddy');
+grayColor = [.7 .7 .7];
+plot(JTbleddy+JTinteddy+JTnleddy,Tie,'Color', grayColor,'linewidth',2,'DisplayName','Total Eddy');
+ylabel('Temperature ($^\circ$C)','FontSize',15);
+xlabel('Flux (Wm$^{-2}$)','FontSize',15);
 legend('Location','southeast','fontsize',9);
