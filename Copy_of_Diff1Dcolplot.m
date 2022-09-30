@@ -1,5 +1,5 @@
 figure;
-set(gcf,'Position',[453 26 1006 500]);
+set(gcf,'Position',[453 26 1006 650]);
 % $$$ set(gcf,'Position',[206 69 1619 905]);
 [Tr,Zr] = meshgrid(t/86400,z_rho);
 [Tw,Zw] = meshgrid(t/86400,z_w);
